@@ -1,27 +1,25 @@
 <p>text-editor works!</p>
 <!-- [options]="editorConfig" -->
 <quill-editor
+  id="editor-container"
   [styles]="{ width: '400px', height: '400px', backgroundColor: '#faf8f8' }"
   [formControl]="textControl"
   [modules]="{
     counter: { container: '#counter', unit: 'word' },
     addHello: { container: '#addHello', unit: 'char', btn: '#addHelloBtn' }
   }"
-  >
-
+  (onEditorCreated)="getEditorInstance($event)"
+>
   <!-- necessario para o caso de sobrescrevar a funcao de imagem -->
   <!-- (onEditorCreated)="getEditorInstance($event)" -->
 
-
-
-
-<!-- <div quill-editor-toolbar>
+  <!-- <div quill-editor-toolbar>
   <button style="width: 120px" (click)="customButtonClick($event)">
     custom button
   </button>
 </div> -->
 
-  <!-- <div quill-editor-toolbar>
+  <div quill-editor-toolbar>
     <span class="ql-formats">
       counter
       <div id="counter"></div>
@@ -31,7 +29,7 @@
       <div id="addHello"></div>
       <button id="addHelloBtn">teste Hello</button>
     </span>
-  </div> -->
+  </div>
 </quill-editor>
 <!-- <quill-editor
   [styles]="{ height: '400px', backgroundColor: '#faf8f8' }"
